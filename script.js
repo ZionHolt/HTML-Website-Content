@@ -10,17 +10,26 @@ const quotes = [
     "The way I see it, the mountain can't bring out anything that isn't already in you."
 ];
 
-function generateQuote() {
+// Function to show a new quote
+function showRandomQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     const quoteElement = document.getElementById("quote");
     quoteElement.textContent = quotes[randomIndex];
+}
 
-    // Now send the event to GA4
+// Function to send tracking event to GA4
+function trackNewQuoteEvent() {
     gtag('event', 'new_quote_clicked', {
         'event_category': 'engagement',
         'event_label': 'Quote Button'
     });
 }
 
-window.onload = generateQuote;
+// Combined function for button
+function onQuoteButtonClick() {
+    showRandomQuote();
+    trackNewQuoteEvent();
+}
 
+// Automatically generate a quote on page load
+window.onload = showRandomQuote;
