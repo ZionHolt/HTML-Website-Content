@@ -14,6 +14,16 @@ function generateQuote() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     const quoteElement = document.getElementById("quote");
     quoteElement.textContent = quotes[randomIndex];
+
+    // Google Analytics event tracking
+    if (typeof gtag === 'function') {  // safe check if gtag exists
+        gtag('event', 'new_quote_clicked', {
+            'event_category': 'engagement',
+            'event_label': 'Quote Button'
+        });
+    }
 }
 
+// Generate a quote immediately when page loads
 window.onload = generateQuote;
+
