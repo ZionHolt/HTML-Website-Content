@@ -36,7 +36,7 @@
 <main>
 <h2>Game Feedback Form</h2>
 <h3>The form below allows you to answer and submit various questions related to the games found here:</h3>
-<form id="feedback-form" method="post" action="submit_form.php">
+<form id="feedback-form">
 
     <label for="name">Name:</label><br>
     <input type="text" id="name" name="name" required><br><br>
@@ -77,6 +77,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-    
+
+<script>
+document.getElementById('feedback-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Stop the form from trying to actually submit anywhere
+
+    // Optionally you can clear the form fields
+    this.reset();
+
+    // Show a thank you message
+    alert('Thank you for your feedback!');
+});
+</script>
+
 </body>
 </html>
