@@ -68,25 +68,24 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('feedback-form');
 
-    form.addEventListener('submit', function() {
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Stop the real submission
+
+        // Log for debugging
         console.log("Form submitted!");
+
+        // Google Analytics event
         gtag('event', 'form_submitted', {
             'event_category': 'engagement',
             'event_label': 'Feedback Form'
         });
+
+        // Clear the form
+        form.reset();
+
+        // Thank the user
+        alert('Thank you for your feedback!');
     });
-});
-</script>
-
-<script>
-document.getElementById('feedback-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Stop the form from trying to actually submit anywhere
-
-    // Optionally you can clear the form fields
-    this.reset();
-
-    // Show a thank you message
-    alert('Thank you for your feedback!');
 });
 </script>
 
