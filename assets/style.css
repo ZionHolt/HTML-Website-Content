@@ -162,3 +162,34 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+/*Quote Section*/
+.quote-box {
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: black;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.quote-box p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.quote-box button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: purple;
+    color: #fff;
+    cursor: pointer;
+}
+
+.quote-box button:hover {
+    background-color: #005fa3;
+}
+
