@@ -64,5 +64,19 @@
         <p>Contact me at: <a href="mailto:ZHOLT@email.sc.edu">ZHOLT@email.sc.edu</a></p>
     </footer>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('feedback-form');
+
+    form.addEventListener('submit', function() {
+        console.log("Form submitted!");
+        gtag('event', 'form_submitted', {
+            'event_category': 'engagement',
+            'event_label': 'Feedback Form'
+        });
+    });
+});
+</script>
+    
 </body>
 </html>
