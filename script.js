@@ -15,15 +15,12 @@ function generateQuote() {
     const quoteElement = document.getElementById("quote");
     quoteElement.textContent = quotes[randomIndex];
 
-    // Google Analytics event tracking
-    if (typeof gtag === 'function') {  // safe check if gtag exists
-        gtag('event', 'new_quote_clicked', {
-            'event_category': 'engagement',
-            'event_label': 'Quote Button'
-        });
-    }
+    // Now send the event to GA4
+    gtag('event', 'new_quote_clicked', {
+        'event_category': 'engagement',
+        'event_label': 'Quote Button'
+    });
 }
 
-// Generate a quote immediately when page loads
 window.onload = generateQuote;
 
